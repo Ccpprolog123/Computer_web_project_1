@@ -1,0 +1,117 @@
+/* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #add8e6; /* Light blue background color */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes at least full viewport height */
+}
+
+/* Header styling */
+header {
+    background: #add8e6;
+    color: #e03c31;
+
+    padding: 1rem 0;
+    text-align: center;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+/* Navigation styling */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #C4B454;
+    padding: 0.5rem 0;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background: #e03c31;
+    color: #add8e6
+}
+
+/* Main content styling */
+main {
+    flex: 1; /* Allows main to expand and take up remaining space */
+    padding: 2rem;
+    text-align: left;
+}
+
+/* Introduction section styling */
+.intro {
+    background: #add8e6;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Dynamic section styling */
+.dynamic-section {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Footer styling */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* General button styling */
+button, .button, .move-to-top {
+    background-color: #f4c542; /* Yellow background */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Button hover effect */
+button:hover, .button:hover, .move-to-top:hover {
+    background-color: #e03c31; /* Red background on hover */
+    color: #fff; /* White text on hover */
+    transform: scale(1.1); /* Slightly enlarge button on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Move to Top button styling */
+.move-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none; /* Remove underline */
+}

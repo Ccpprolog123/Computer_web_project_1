@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Functions Examples</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .butt ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .butt ul li {
+            margin: 5px 0;
+        }
+        .butt ul li a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .butt ul li a:hover {
+            text-decoration: underline;
+        }
+        .section-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Functions in C</h1>
+            <nav>
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="structure.html" class="nav-link">Structure and Union</a>
+                <a href="pointers.html" class="nav-link">Pointers</a>
+                <a href="filehandling.html" class="nav-link">File Handling in C</a>
+               
+            </nav>
+    </header>
+    <main>
+        <section>
+            <div class="butt">
+                <nav>
+                    <ul>
+                        <li><a href="#i1">1. Find the square of a given number using user defined functions.</a></li>
+                        <li><a href="#i2">2. Calculate the area of a circle using a function.</a></li>
+                        <li><a href="#i3">3. Calculate simple interest using a function.</a></li>
+                        <li><a href="#i4">4. Find the sum of N natural numbers using a function.</a></li>
+                        <li><a href="#i5">5. Return the absolute value of a number using a user-defined function.</a></li>
+                        <li><a href="#i6">6. Convert lowercase character to uppercase using a user-defined function.</a></li>
+                        <li><a href="#i7">7. Swap two numbers using a function.</a></li>
+                        <li><a href="#i8">8. Check if a number is Odd or Even using a function.</a></li>
+                        <li><a href="#i9">9. Check if the input number is perfect or not.</a></li>
+                        <li><a href="#i10">10. Find the maximum and minimum values among three numbers.</a></li>
+                        <li><a href="#ii1">11. Factorial of a given number using recursion.</a></li>
+                        <li><a href="#ii2">12. Fibonacci Series up to N numbers using recursion.</a></li>
+                        <li><a href="#ii3">13. Check if a number is palindrome using recursion.</a></li>
+                        <li><a href="#a1">14. Array Example.</a></li>
+                        <li><a href="#a2">15. Structure Example.</a></li>
+                        <li><a href="#a3">16. Union Example.</a></li>
+                        <li><a href="#a4">17. Structure with Array Example.</a></li>
+                        <li><a href="#a5">18. Union with Array Example.</a></li>
+                        <li><a href="#a6-1">19. GCD of two numbers using a function.</a></li>
+                        <li><a href="#a6-2">20. Check if a number is Prime using a function.</a></li>
+                        <li><a href="#a6-3">21. Count the number of digits of an input number.</a></li>
+                        <li><a href="#a6-4">22. Print the reverse of the input number using a function.</a></li>
+                        <li><a href="#a6-5">23. Check if a number is Palindrome using a function.</a></li>
+                        <li><a href="#a6-6">24. Calculate the sum of numbers in an array using a function.</a></li>
+                        <li><a href="#a6-7">25. Sort elements of an array in ascending order using a function.</a></li>
+                        <li><a href="#a6-8">26. Calculate the sum of N numbers using recursion.</a></li>
+                        <li><a href="#a6-9">27. Factorial of input number using recursion.</a></li>
+                        <li><a href="#a6-10">28. Generate Fibonacci series up to N numbers using recursion.</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="section-box">
+                <h3>I. Function Examples</h3>
+                <div id="i1">
+                    <h4>1. Write a C program to find the square of a given number using user-defined functions.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void takeInput(int *num);
+int calculateSquare(int num);
+void displayResult(int result);
+
+int main() {
+    int num, square;
+    takeInput(&num);
+    square = calculateSquare(num);
+    displayResult(square);
+    return 0;
+}
+
+void takeInput(int *num) {
+    printf("Enter a number: ");
+    scanf("%d", num);
+}
+
+int calculateSquare(int num) {
+    return num * num;
+}
+
+void displayResult(int result) {
+    printf("Square: %d\n", result);
+}
+                    </code></pre>
+                </div>
+                <div id="i2">
+                    <h4>2. Write a C program to calculate the area of the circle using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+#define PI 3.14159
+
+float calculateArea(float radius);
+
+int main() {
+    float radius;
+    printf("Enter the radius of the circle: ");
+    scanf("%f", &radius);
+    printf("Area of the circle: %.2f\n", calculateArea(radius));
+    return 0;
+}
+
+float calculateArea(float radius) {
+    return PI * radius * radius;
+}
+                    </code></pre>
+                </div>
+                <div id="i3">
+                    <h4>3. Write a C program to calculate simple interest using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+float calculateSimpleInterest(float principal, float rate, int time);
+
+int main() {
+    float principal, rate;
+    int time;
+    printf("Enter principal, rate of interest, and time: ");
+    scanf("%f %f %d", &principal, &rate, &time);
+    printf("Simple Interest: %.2f\n", calculateSimpleInterest(principal, rate, time));
+    return 0;
+}
+
+float calculateSimpleInterest(float principal, float rate, int time) {
+    return (principal * rate * time) / 100;
+}
+                    </code></pre>
+                </div>
+                <div id="i4">
+                    <h4>4. Write a C program to find the sum of N natural numbers using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int sumOfNaturalNumbers(int n);
+
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    printf("Sum of first %d natural numbers: %d\n", n, sumOfNaturalNumbers(n));
+    return 0;
+}
+
+int sumOfNaturalNumbers(int n) {
+    return (n * (n + 1)) / 2;
+}
+                    </code></pre>
+                </div>
+                <div id="i5">
+                    <h4>5. Write a C program to return the absolute value of a number using a user-defined function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int absoluteValue(int num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Absolute value: %d\n", absoluteValue(num));
+    return 0;
+}
+
+int absoluteValue(int num) {
+    return (num < 0) ? -num : num;
+}
+                    </code></pre>
+                </div>
+                <div id="i6">
+                    <h4>6. Write a C program that reads a single lowercase character and returns the uppercase equivalent using a user-defined function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+char toUppercase(char ch);
+
+int main() {
+    char ch;
+    printf("Enter a lowercase character: ");
+    scanf("%c", &ch);
+    printf("Uppercase equivalent: %c\n", toUppercase(ch));
+    return 0;
+}
+
+char toUppercase(char ch) {
+    return (ch >= 'a' && ch <= 'z') ? (ch - 32) : ch;
+}
+                    </code></pre>
+                </div>
+                <div id="i7">
+                    <h4>7. Write a C program to swap two numbers using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b);
+
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    swap(&a, &b);
+    printf("After swapping: a = %d, b = %d\n", a, b);
+    return 0;
+}
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+                    </code></pre>
+                </div>
+                <div id="i8">
+                    <h4>8. Write a C program to check whether the given number is Odd or Even using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int isEven(int num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isEven(num))
+        printf("%d is even\n", num);
+    else
+        printf("%d is odd\n", num);
+    return 0;
+}
+
+int isEven(int num) {
+    return (num % 2 == 0);
+}
+                    </code></pre>
+                </div>
+                <div id="i9">
+                    <h4>9. Write a C program to check if the input number is perfect or not.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int isPerfect(int num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isPerfect(num))
+        printf("%d is a perfect number\n", num);
+    else
+        printf("%d is not a perfect number\n", num);
+    return 0;
+}
+
+int isPerfect(int num) {
+    int sum = 0;
+    for (int i = 1; i <= num / 2; i++) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+    return (sum == num);
+}
+                    </code></pre>
+                </div>
+                <div id="i10">
+                    <h4>10. Write a C program to find the maximum and minimum values among three numbers. Use two separate functions for maximum and minimum.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int findMax(int a, int b, int c);
+int findMin(int a, int b, int c);
+
+int main() {
+    int a, b, c;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    printf("Maximum value: %d\n", findMax(a, b, c));
+    printf("Minimum value: %d\n", findMin(a, b, c));
+    return 0;
+}
+
+int findMax(int a, int b, int c) {
+    if (a > b && a > c) return a;
+    if (b > a && b > c) return b;
+    return c;
+}
+
+int findMin(int a, int b, int c) {
+    if (a < b && a < c) return a;
+    if (b < a && b < c) return b;
+    return c;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <h3>II. Recursive Function Examples</h3>
+                <div id="ii1">
+                    <h4>1. Write a C program using recursive function to find the factorial of a given number.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int factorial(int n);
+
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    printf("Factorial: %d\n", factorial(n));
+    return 0;
+}
+
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    return n * factorial(n - 1);
+}
+                    </code></pre>
+                </div>
+                <div id="ii2">
+                    <h4>2. Write a C program using recursive function to find the Fibonacci Series UpTo n numbers.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void fibonacci(int n, int a, int b);
+
+int main() {
+    int n;
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci Series: ");
+    fibonacci(n, 0, 1);
+    printf("\n");
+    return 0;
+}
+
+void fibonacci(int n, int a, int b) {
+    if (n > 0) {
+        printf("%d ", a);
+        fibonacci(n - 1, b, a + b);
+    }
+}
+                    </code></pre>
+                </div>
+                <div id="ii3">
+                    <h4>3. Write a C program using recursive function to check if the given number is palindrome or not.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int isPalindrome(int num, int reversed);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    int reversed = 0;
+    if (isPalindrome(num, reversed))
+        printf("%d is a Palindrome number\n", num);
+    else
+        printf("%d is not a Palindrome number\n", num);
+    return 0;
+}
+
+int isPalindrome(int num, int reversed) {
+    if (num == 0)
+        return (reversed == 0);
+    reversed = reversed * 10 + num % 10;
+    return isPalindrome(num / 10, reversed);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="section-box">
+                <h3>III. Additional Examples</h3>
+                <div id="a1">
+                    <h4>1. Array Example</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[5];
+    printf("Enter 5 integers:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("You entered:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+                    </code></pre>
+                </div>
+                <div id="a2">
+                    <h4>2. Structure Example</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+struct Student {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Student student;
+    printf("Enter student's name and age: ");
+    scanf("%s %d", student.name, &student.age);
+    printf("Student's Name: %s\n", student.name);
+    printf("Student's Age: %d\n", student.age);
+    return 0;
+}
+                    </code></pre>
+                </div>
+                <div id="a3">
+                    <h4>3. Union Example</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+union Data {
+    int intValue;
+    float floatValue;
+};
+
+int main() {
+    union Data data;
+    data.intValue = 10;
+    printf("Integer Value: %d\n", data.intValue);
+    data.floatValue = 220.5;
+    printf("Float Value: %.2f\n", data.floatValue);
+    return 0;
+}
+                    </code></pre>
+                </div>
+                <div id="a4">
+                    <h4>4. Structure with Array Example</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+struct Classroom {
+    char students[3][50];
+    int studentCount;
+};
+
+int main() {
+    struct Classroom classroom;
+    classroom.studentCount = 3;
+    printf("Enter names of 3 students:\n");
+    for (int i = 0; i < classroom.studentCount; i++) {
+        scanf("%s", classroom.students[i]);
+    }
+    printf("Students in the classroom:\n");
+    for (int i = 0; i < classroom.studentCount; i++) {
+        printf("%s\n", classroom.students[i]);
+    }
+    return 0;
+}
+                    </code></pre>
+                </div>
+                <div id="a5">
+                    <h4>5. Union with Array Example</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+union Data {
+    int intArray[5];
+};
+
+int main() {
+    union Data data;
+    printf("Enter 5 integers:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &data.intArray[i]);
+    }
+    printf("Data as integers:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", data.intArray[i]);
+    }
+    printf("\n");
+    return 0;
+}
+                    </code></pre>
+                </div>
+                <div id="a6-1">
+                    <h4>6. Find the Greatest Common Divisor (GCD) of two numbers using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int gcd(int a, int b);
+
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    printf("GCD: %d\n", gcd(a, b));
+    return 0;
+}
+
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+                    </code></pre>
+                </div>
+                <div id="a6-2">
+                    <h4>7. Check whether the given number is Prime or not using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int isPrime(int num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isPrime(num))
+        printf("%d is a prime number\n", num);
+    else
+        printf("%d is not a prime number\n", num);
+    return 0;
+}
+
+int isPrime(int num) {
+    if (num <= 1)
+        return 0;
+    for (int i = 2; i <= num / 2; i++) {
+        if (num % i == 0)
+            return 0;
+    }
+    return 1;
+}
+                    </code></pre>
+                </div>
+                <div id="a6-3">
+                    <h4>8. Count the number of digits of the input number.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int countDigits(int num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Number of digits: %d\n", countDigits(num));
+    return 0;
+}
+
+int countDigits(int num) {
+    int count = 0;
+    while (num != 0) {
+        num /= 10;
+        count++;
+    }
+    return count;
+}
+                    </code></pre>
+                </div>
+                <div id="a6-4">
+                    <h4>9. Print the reverse of the input number using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int reverseNumber(int num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    printf("Reversed number: %d\n", reverseNumber(num));
+    return 0;
+}
+
+int reverseNumber(int num) {
+    int reversed = 0;
+    while (num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+    return reversed;
+}
+                    </code></pre>
+                </div>
+                <div id="a6-5">
+                    <h4>10. Check if the given number is Palindrome or not using the function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int isPalindrome(int num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isPalindrome(num))
+        printf("%d is a Palindrome number\n", num);
+    else
+        printf("%d is not a Palindrome number\n", num);
+    return 0;
+}
+
+int isPalindrome(int num) {
+    int reversed = 0, original = num;
+    while (num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+    return (original == reversed);
+}
+                    </code></pre>
+                </div>
+                <div id="a6-6">
+                    <h4>11. Calculate the sum of numbers in the user input array using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int sumArray(int arr[], int size);
+
+int main() {
+    int arr[5];
+    printf("Enter 5 integers:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Sum of the array elements: %d\n", sumArray(arr, 5));
+    return 0;
+}
+
+int sumArray(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+                    </code></pre>
+                </div>
+                <div id="a6-7">
+                    <h4>12. Sort the elements of the user input array in ascending order using a function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void sortArray(int arr[], int size);
+
+int main() {
+    int arr[5];
+    printf("Enter 5 integers:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    sortArray(arr, 5);
+    printf("Sorted array: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+void sortArray(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] > arr[j]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+                    </code></pre>
+                </div>
+                <div id="a6-8">
+                    <h4>13. Calculate the sum of N numbers using recursion.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int sumOfNNumbers(int n);
+
+int main() {
+    int n;
+    printf("Enter the value of N: ");
+    scanf("%d", &n);
+    printf("Sum of first %d numbers: %d\n", n, sumOfNNumbers(n));
+    return 0;
+}
+
+int sumOfNNumbers(int n) {
+    if (n == 0)
+        return 0;
+    return n + sumOfNNumbers(n - 1);
+}
+                    </code></pre>
+                </div>
+                <div id="a6-9">
+                    <h4>14. Find the factorial of the input number using a recursive function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int factorial(int n);
+
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    printf("Factorial: %d\n", factorial(n));
+    return 0;
+}
+
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    return n * factorial(n - 1);
+}
+                    </code></pre>
+                </div>
+                <div id="a6-10">
+                    <h4>15. Generate Fibonacci series up to N numbers using recursion.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void fibonacci(int n, int a, int b);
+
+int main() {
+    int n;
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+    printf("Fibonacci Series: ");
+    fibonacci(n, 0, 1);
+    printf("\n");
+    return 0;
+}
+
+void fibonacci(int n, int a, int b) {
+    if (n > 0) {
+        printf("%d ", a);
+        fibonacci(n - 1, b, a + b);
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+       <p> &copy; 2024 C Programming Examples</p>
+        <p>Created by Bishal Nepal.</p>
+        <p>Email: <a href="nepalbishal2066@gmail.com">nepalbishal2066@gmail.com</a></p>
+    </footer>
+    <a href="#top" class="move-to-top">Top</a>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointers in C</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>C Programming Examples - Pointers</h1>
+        <nav>
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="functions.html" class="nav-link">Functions in C</a>
+            <a href="structure.html" class="nav-link">Structures and Unions</a>
+            <a href="filehandling.html" class="nav-link">File Handling in C</a>
+           
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="section-box">
+                <h3>Navigation</h3>
+                <ul class="nav-list">
+                    <li><a href="#q1">1. Write a C program to calculate the area of a circle using Pointer.</a></li>
+                    <li><a href="#q2">2. Write a C program to find the maximum value between two numbers using Pointer.</a></li>
+                    <li><a href="#q3">3. Write a C program to swap two numbers using call by reference.</a></li>
+                    <li><a href="#q4">4. Write a C program to check whether the input number is odd or even using call by reference.</a></li>
+                    <li><a href="#q5">5. Write a C program to check whether the input number is prime or not using Pointer and Function.</a></li>
+                    <li><a href="#q6">6. Write a C program to find the factorial of a given number using call by reference.</a></li>
+                    <li><a href="#q7">7. Write a C program to print the array of 5 numbers in ascending order using Pointer.</a></li>
+                    <li><a href="#q8">8. Write a C program to calculate the length of string using Pointer and Function.</a></li>
+                    <li><a href="#q9">9. Write a C program to find the reverse of a string using call by reference.</a></li>
+                    <li><a href="#q10">10. Write a C program to search an element in an array using pointers.</a></li>
+                </ul>
+            </div>
+
+            <div class="section-box">
+                <h3>Examples</h3>
+                <div id="q1">
+                    <h4>1. Write a C program to calculate the area of a circle using Pointer.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void calculateArea(float radius, float *area);
+
+int main() {
+    float radius, area;
+    printf("Enter the radius of the circle: ");
+    scanf("%f", &radius);
+    calculateArea(radius, &area);
+    printf("Area of the circle: %.2f\n", area);
+    return 0;
+}
+
+void calculateArea(float radius, float *area) {
+    *area = 3.14 * radius * radius;
+}
+                    </code></pre>
+                </div>
+                <div id="q2">
+                    <h4>2. Write a C program to find the maximum value between two numbers using Pointer.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void findMax(int *a, int *b, int *max);
+
+int main() {
+    int a, b, max;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    findMax(&a, &b, &max);
+    printf("Maximum value: %d\n", max);
+    return 0;
+}
+
+void findMax(int *a, int *b, int *max) {
+    *max = (*a > *b) ? *a : *b;
+}
+                    </code></pre>
+                </div>
+                <div id="q3">
+                    <h4>3. Write a C program to swap two numbers using call by reference.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b);
+
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    swap(&a, &b);
+    printf("After swapping: a = %d, b = %d\n", a, b);
+    return 0;
+}
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+                    </code></pre>
+                </div>
+                <div id="q4">
+                    <h4>4. Write a C program to check whether the input number is odd or even using call by reference.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void checkEvenOdd(int *num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    checkEvenOdd(&num);
+    return 0;
+}
+
+void checkEvenOdd(int *num) {
+    if (*num % 2 == 0)
+        printf("%d is even\n", *num);
+    else
+        printf("%d is odd\n", *num);
+}
+                    </code></pre>
+                </div>
+                <div id="q5">
+                    <h4>5. Write a C program to check whether the input number is prime or not using Pointer and Function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int isPrime(int *num);
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isPrime(&num))
+        printf("%d is a prime number\n", num);
+    else
+        printf("%d is not a prime number\n", num);
+    return 0;
+}
+
+int isPrime(int *num) {
+    if (*num <= 1)
+        return 0;
+    for (int i = 2; i <= *num / 2; i++) {
+        if (*num % i == 0)
+            return 0;
+    }
+    return 1;
+}
+                    </code></pre>
+                </div>
+                <div id="q6">
+                    <h4>6. Write a C program to find the factorial of a given number using call by reference.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void factorial(int *n, int *result);
+
+int main() {
+    int n, result;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    factorial(&n, &result);
+    printf("Factorial: %d\n", result);
+    return 0;
+}
+
+void factorial(int *n, int *result) {
+    *result = 1;
+    for (int i = 1; i <= *n; i++) {
+        *result *= i;
+    }
+}
+                    </code></pre>
+                </div>
+                <div id="q7">
+                    <h4>7. Write a C program to print the array of 5 numbers in ascending order using Pointer.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+void sortArray(int *arr, int size);
+
+int main() {
+    int arr[5];
+    printf("Enter 5 numbers:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    sortArray(arr, 5);
+    printf("Array in ascending order:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+void sortArray(int *arr, int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (*(arr + i) > *(arr + j)) {
+                int temp = *(arr + i);
+                *(arr + i) = *(arr + j);
+                *(arr + j) = temp;
+            }
+        }
+    }
+}
+                    </code></pre>
+                </div>
+                <div id="q8">
+                    <h4>8. Write a C program to calculate the length of string using Pointer and Function.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int stringLength(char *str);
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    printf("Length of the string: %d\n", stringLength(str));
+    return 0;
+}
+
+int stringLength(char *str) {
+    int length = 0;
+    while (*str != '\0') {
+        length++;
+        str++;
+    }
+    return length - 1; // Subtract 1 to exclude the newline character if present
+}
+                    </code></pre>
+                </div>
+                <div id="q9">
+                    <h4>9. Write a C program to find the reverse of a string using call by reference.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+void reverseString(char *str);
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    reverseString(str);
+    printf("Reversed string: %s\n", str);
+    return 0;
+}
+
+void reverseString(char *str) {
+    int length = strlen(str) - 1; // Exclude the newline character
+    for (int i = 0; i < length / 2; i++) {
+        char temp = str[i];
+        str[i] = str[length - i - 1];
+        str[length - i - 1] = temp;
+    }
+}
+                    </code></pre>
+                </div>
+                <div id="q10">
+                    <h4>10. Write a C program to search an element in an array using pointers.</h4>
+                    <pre><code>
+#include &lt;stdio.h&gt;
+
+int searchElement(int *arr, int size, int key);
+
+int main() {
+    int arr[5], key, found;
+    printf("Enter 5 numbers:\n");
+    for (int i = 0; i < 5; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter the number to search: ");
+    scanf("%d", &key);
+    found = searchElement(arr, 5, key);
+    if (found != -1)
+        printf("Element found at index %d\n", found);
+    else
+        printf("Element not found\n");
+    return 0;
+}
+
+int searchElement(int *arr, int size, int key) {
+    for (int i = 0; i < size; i++) {
+        if (*(arr + i) == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2024 C Programming Examples
+        <p>Created by Bishal Nepal.</p>
+        <p>Email: <a href="nepalbishal2066@gmail.com">nepalbishal2066@gmail.com</a></p>
+    </footer>
+    <a href="#top" class="move-to-top">Top</a>
+</body>
+</html>

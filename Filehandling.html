@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Handling in C</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>File Handling in C</h1>
+        <nav>
+            <a href="home.html" class="nav-link">Home</a>
+            <a href="functions.html" class="nav-link">Functions in C</a>
+            <a href="structure.html" class="nav-link">Structure and Union</a>
+            <a href="pointers.html" class="nav-link">Pointers</a>
+           
+        </nav>
+    </header>
+    <main>
+        
+            <h2>File Handling in C - Questions and Code</h2>
+            <div class="butt"><nav>
+                <a href="#q1" class="nav-link">1. Write a C program to write a character and display it using fgetc() and fputc() functions.</a>
+             <br>   <a href="#q2" class="nav-link">2. Write a C program to write a number and display it using getw() and putw() functions</a>
+ <br>               <a href="#q3" class="nav-link">3. Write a C program to input a string and display it using fputs() and fgets() functions</a>
+                <br><a href="#q4" class="nav-link">4. Write a program to copy the contents of one file to another</a>
+              <br>  <a href="#q5" class="nav-link">5. Write a program to count the number of characters in a file you have created</a>
+          <br>      <a href="#q6" class="nav-link">6. Write a C program to read character of 10th position and display it using fseek () and ftell() functions</a>
+           </nav> </div>
+
+            <div id="q1" class="dynamic-section">
+                <h3>1. Write a C program to write a character and display it using fgetc() and fputc() functions.</h3>
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file;
+    char ch;
+
+    file = fopen("test.txt", "w"); // Open file in write mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fputc('A', file); // Write a character to the file
+    fclose(file);
+
+    file = fopen("test.txt", "r"); // Open file in read mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    ch = fgetc(file); // Read a character from the file
+    printf("Character read from file: %c\n", ch);
+    fclose(file);
+
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <div id="q2" class="dynamic-section">
+                <h3>2. Write a C program to write a number and display it using getw() and putw() functions.</h3>
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file;
+    int num;
+
+    file = fopen("number.txt", "w"); // Open file in write mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    putw(12345, file); // Write an integer to the file
+    fclose(file);
+
+    file = fopen("number.txt", "r"); // Open file in read mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    num = getw(file); // Read an integer from the file
+    printf("Number read from file: %d\n", num);
+    fclose(file);
+
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <div id="q3" class="dynamic-section">
+                <h3>3. Write a C program to input a string and display it using fputs() and fgets() functions.</h3>
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file;
+    char str[100];
+
+    file = fopen("string.txt", "w"); // Open file in write mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fputs("Hello, World!", file); // Write a string to the file
+    fclose(file);
+
+    file = fopen("string.txt", "r"); // Open file in read mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fgets(str, sizeof(str), file); // Read a string from the file
+    printf("String read from file: %s\n", str);
+    fclose(file);
+
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <div id="q4" class="dynamic-section">
+                <h3>4. Write a program to copy the contents of one file to another.</h3>
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *source, *destination;
+    char ch;
+
+    source = fopen("source.txt", "r"); // Open source file in read mode
+    if (source == NULL) {
+        printf("Unable to open source file.\n");
+        return 1;
+    }
+
+    destination = fopen("destination.txt", "w"); // Open destination file in write mode
+    if (destination == NULL) {
+        printf("Unable to open destination file.\n");
+        fclose(source);
+        return 1;
+    }
+
+    while ((ch = fgetc(source)) != EOF) {
+        fputc(ch, destination); // Copy character by character
+    }
+
+    fclose(source);
+    fclose(destination);
+
+    printf("File copied successfully.\n");
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <div id="q5" class="dynamic-section">
+                <h3>5. Write a program to count the number of characters in a file you have created.</h3>
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file;
+    int count = 0;
+    char ch;
+
+    file = fopen("file.txt", "r"); // Open file in read mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    while ((ch = fgetc(file)) != EOF) {
+        count++; // Count characters
+    }
+
+    fclose(file);
+
+    printf("Number of characters in the file: %d\n", count);
+    return 0;
+}
+                </code></pre>
+            </div>
+
+            <div id="q6" class="dynamic-section">
+                <h3>6. Write a C program to read character of 10th position and display it using fseek() and ftell() functions.</h3>
+                <pre><code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *file;
+    char ch;
+    long pos;
+
+    file = fopen("file.txt", "r"); // Open file in read mode
+    if (file == NULL) {
+        printf("Unable to open file.\n");
+        return 1;
+    }
+
+    fseek(file, 9, SEEK_SET); // Move to the 10th character (index 9)
+    pos = ftell(file); // Get current position
+
+    ch = fgetc(file); // Read the character at the current position
+    printf("Character at position %ld: %c\n", pos + 1, ch);
+    
+    fclose(file);
+    return 0;
+}
+                </code></pre>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 C Programming Tutorial. All rights reserved.</p>
+        <p>Created by Bishal Nepal.</p>
+        <p>Email: <a href="nepalbishal2066@gmail.com">nepalbishal2066@gmail.com</a></p>
+    </footer>
+    <a href="#top" class="move-to-top">Top</a>
+</body>
+</html>
